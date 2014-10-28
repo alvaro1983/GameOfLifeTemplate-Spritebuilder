@@ -39,13 +39,7 @@
     NSMutableDictionary* cocos2dSetup = [NSMutableDictionary dictionaryWithContentsOfFile:configPath];
     
     // Note: this needs to happen before configureCCFileUtils is called, because we need apportable to correctly setup the screen scale factor.
-#ifdef APPORTABLE
-    if([cocos2dSetup[CCSetupScreenMode] isEqual:CCScreenModeFixed])
-        [UIScreen mainScreen].currentMode = [UIScreenMode emulatedMode:UIScreenAspectFitEmulationMode];
-    else
-        [UIScreen mainScreen].currentMode = [UIScreenMode emulatedMode:UIScreenScaledAspectFitEmulationMode];
-#endif
-    
+     
     // Configure CCFileUtils to work with SpriteBuilder
     [CCBReader configureCCFileUtils];
     
